@@ -1,0 +1,62 @@
+## Creating Postgres database
+
+### Initialize database all in one go
+Run: `yarn db:init`
+
+OR
+
+### Initialize database step-by-step
+1. First create database:\
+`yarn db:create`
+
+2. Run migration to ensure `SequelizeMeta` table exists in database:\
+`yarn migrate:up `
+
+3. Seed database:\
+`yarn db:seed`
+
+
+## Run server
+`yarn dev`
+
+
+
+
+----
+
+### Seed database with user roles
+Create the seed file
+```
+yarn sequelize-cli seed:generate --name user-roles
+```
+This command creates a file in `seeders` with a file name like: `XXXXXXXXXXXXXX-user-roles.js`
+
+Edit the file with this code:
+```
+modules.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.bulkInsert('user_roles', [
+      {
+        id: 1,
+        name: 'user'
+      },
+      {
+        id: 2,
+        name: moderator
+      },
+      {
+        id: 3,
+        name: 'admin'
+      }
+    ]);
+  },
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete('user_roles', null, {});
+  }
+};
+```
+
+Run 
+```
+yarn sequelize-cli db:seed:all
+```

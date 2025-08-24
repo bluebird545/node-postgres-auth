@@ -1,0 +1,2 @@
+### Refresh token
+- [auth sys w/ node-express-jwt](https://ckoder.medium.com/building-a-secure-authentication-system-with-node-js-express-and-jwt-a-step-by-step-guide-2e1958bbf562) <-saves tokens in http-only cookie
