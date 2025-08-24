@@ -3,6 +3,7 @@
 createDatabase.sh
 Makefile
 /seeders
+-*.*
 
 
 ## Ignore Visual Studio temporary files, build results, and
